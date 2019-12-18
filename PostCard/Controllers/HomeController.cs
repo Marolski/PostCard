@@ -43,6 +43,10 @@ namespace PostCard.Controllers
                 user.Verified = false;
                 db.User.Add(user);
                 db.SaveChanges();
+                string body = "kliknij w <a href=\"https://localhost:44385/Home/Login\">klik</a> aby potwierdzic konto";
+                MailMessage mail = new MailMessage("mbrzoska303@gmail.com", user.Email,"potwierdzenie",body);
+                mail.IsBodyHtml = true;
+                Server().Send(mail);
                 return View("Succesful", user);
             }
             else
@@ -50,6 +54,22 @@ namespace PostCard.Controllers
                 string error = "Dane nie zostały poprawnie zwalidowane";
                 return View("ErrorPage", error);
             }
+        }
+        public ActionResult Login()
+        {
+            return View();
+        }
+        public SmtpClient Server()
+        {
+            SmtpClient server = new SmtpClient()
+            {
+                Host = "smtp.gmail.com",
+                Port = 587,
+                EnableSsl = true,
+                UseDefaultCredentials = false,
+                Credentials = new System.Net.NetworkCredential("mbrzoska303@gmail.com", "marol123")
+            };
+            return server;
         }
     }
 }
