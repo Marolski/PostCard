@@ -6,6 +6,10 @@ using System.Web;
 using System.Web.Mvc;
 using PostCard.Database;
 using PostCard.Models;
+using System.Security.Cryptography;
+using System.Text;
+using System.Collections.Specialized;
+using System.Data.SqlClient;
 
 namespace PostCard.Controllers
 {
@@ -38,26 +42,66 @@ namespace PostCard.Controllers
         [HttpPost]
         public ActionResult Register(User user)
         {
-            if (ModelState.IsValid)
+            user.Date = DateTime.Now;
+            string hashName = Hash(user.Password);
+            user.Hash = hashName;
+            if (user.Password != user.ConfirmPassword)
+            {
+                throw new Exception("Hasła są nieprawidłowe");
+            }
+            else if (ModelState.IsValid)
             {
                 user.Verified = false;
                 db.User.Add(user);
                 db.SaveChanges();
-                string body = "kliknij w <a href=\"https://localhost:44385/Home/Login\">klik</a> aby potwierdzic konto";
+                Uri url = new Uri("https://localhost:44385/Home/Login?parameter=" + hashName+"&parameter2="+user.Nick);
+                string body = "kliknij w <a href="+url+">klik</a> aby potwierdzic konto";
                 MailMessage mail = new MailMessage("mbrzoska303@gmail.com", user.Email,"potwierdzenie",body);
                 mail.IsBodyHtml = true;
                 Server().Send(mail);
-                return View("Succesful", user);
             }
             else
             {
                 string error = "Dane nie zostały poprawnie zwalidowane";
                 return View("ErrorPage", error);
             }
+            return View("Succesful", user);
         }
         public ActionResult Login()
         {
-            return View();
+            NameValueCollection QueryString = new NameValueCollection();
+            string hash = Request.QueryString["parameter"];
+            Console.WriteLine(hash);
+            TempData["parameter"] = hash;
+            string nick = Request.QueryString["parameter2"];
+            Console.WriteLine(nick);
+            TempData["parameter2"] = nick;
+            using (db)
+            {
+                var query = db.User
+                               .Where(x => x.Nick == nick)
+                               .FirstOrDefault<User>();
+                Console.WriteLine(query);
+                if (hash==query.Hash)
+                {
+                    query.Verified = true;
+                    try
+                    { 
+                        db.SaveChanges();
+                        TempData["confirm"] = "Konto zostało aktywowane!";
+                    }
+                    catch (Exception ex)
+                    {
+
+                        throw ex;
+                    }
+                }
+                else
+                {
+                    TempData["confirm"] = "Konto nie zostało aktywowane, skontaktuj się z administratorem.";
+                }
+            }
+            return View();     
         }
         public SmtpClient Server()
         {
@@ -70,6 +114,18 @@ namespace PostCard.Controllers
                 Credentials = new System.Net.NetworkCredential("mbrzoska303@gmail.com", "marol123")
             };
             return server;
+        }
+        public string Hash(string source)
+        {
+            var crypt = new SHA256Managed();
+            var hash = new StringBuilder();
+            byte[] bytes = crypt.ComputeHash(Encoding.UTF8.GetBytes(source));
+            foreach (byte theByte in bytes)
+            {
+                hash.Append(theByte.ToString("x2"));
+            }
+            return hash.ToString();
+
         }
     }
 }

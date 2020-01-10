@@ -81,3 +81,5 @@ C:\Users\marol\source\repos\PostCard\PostCard\obj\Debug\PostCard.pdb
 C:\Users\marol\source\repos\PostCard\PostCard\obj\Debug\PostCard.Migrations.firstMigration.resources
 C:\Users\marol\source\repos\PostCard\PostCard\obj\Debug\PostCard.csproj.GenerateResource.cache
 C:\Users\marol\source\repos\PostCard\PostCard\obj\Debug\PostCard.Migrations.confirmPassword.resources
+C:\Users\marol\source\repos\PostCard\PostCard\obj\Debug\PostCard.Migrations.AddHashAndDate.resources
+C:\Users\marol\source\repos\PostCard\PostCard\obj\Debug\PostCard.Migrations.dodaniehaszuidaty.resources
