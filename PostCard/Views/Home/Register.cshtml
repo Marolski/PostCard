@@ -26,7 +26,7 @@
                 <div class="form-group">
                     <label>Email: </label>
                     @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(x => x.Email,"",new { @class="text-danger"})
+                    @Html.ValidationMessageFor(x => x.Email, "", new { @class = "text-danger" })
                 </div>
                 <div class="form-group">
                     <label>Nick:  </label>
@@ -34,24 +34,32 @@
                     @Html.ValidationMessageFor(x => x.Nick, "", new { @class = "text-danger" })
                 </div>
                 <div class="form-group">
-                    <label>Hasło:</label>
+                    <label>Password:</label>
                     @Html.TextBoxFor(x => x.Password, new { @class = "form-control" })
                     @Html.ValidationMessageFor(x => x.Password, "", new { @class = "text-danger" })
                 </div>
                 <div class="form-group">
                     <label>Confirm password: </label>
                     @Html.TextBoxFor(x => x.ConfirmPassword, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(x => x.ConfirmPassword,"",new { @class= "text-danger"})
+                    @Html.ValidationMessageFor(x => x.ConfirmPassword, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.CheckBoxFor(x => x.TermsAndConditions)
+                    @Html.LabelFor(x => x.TermsAndConditions)
+                    @Html.ValidationMessageFor(x => x.TermsAndConditions)
                 </div>
 
-                <label>Akceptuje regulamin</label>
-                <input type="checkbox" />
-
                 <div class="text-center">
-                    <input class="btn btn-success" type="submit" value="Zarejestruj" />
+                    <input class="btn btn-success submit" type="submit" value="Zarejestruj" />
                 </div>
             }
         </div>
     </div>
 </body>
+<style type="text/css">
+    .field-validation-error {
+        color: #ff0000;
+        display: block;
+    }
+</style>
 </html>

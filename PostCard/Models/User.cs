@@ -12,7 +12,7 @@ namespace PostCard.Models
         public int ID { get; set; }
         [Display(Name = "Username")]
         [Required(ErrorMessage = "Username is required")]
-        [RegularExpression("^[a-zA-Z0-9].{5,15}$",ErrorMessage = "Username can be from 5 to 15 characters")]
+        [RegularExpression("^(?=.{5,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$", ErrorMessage = "Username can be from 5 to 15 characters and exclude special symbols")]
         public string Nick { get; set; }
 
         [Display(Name = "Email address")]
@@ -26,13 +26,15 @@ namespace PostCard.Models
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
-        [NotMapped] // Nie wysyła do bazy
+        [Required(ErrorMessage = "Confirm password is required")]
+        [Compare("Password")]
+        [Display(Name = "Confirm Password")]
+        [DataType(DataType.Password)]
         public string ConfirmPassword { get; set; }
 
-        public bool Verified { get; set; }
+        [Display(Name = "Terms and Conditions")]
+        [Range(typeof(bool), "true", "true", ErrorMessage = "You have to accept the terms and conditions ")]
+        public bool TermsAndConditions { get; set; }
 
-        public DateTime Date { get; set; }
-
-        public string Hash { get; set; }
     }
 }

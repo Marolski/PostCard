@@ -13,7 +13,7 @@ namespace PostCard.Database
         public UserContext() : base("UserContext")
         {
         }
-        public DbSet<User> User { get; set; }
+        public DbSet<UserDb> UserDb { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();

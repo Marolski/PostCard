@@ -149,8 +149,21 @@
     <Compile Include="Migrations\202001061702365_dodanie haszu i daty.designer.cs">
       <DependentUpon>202001061702365_dodanie haszu i daty.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001101410461_confirmPass.cs" />
+    <Compile Include="Migrations\202001101410461_confirmPass.designer.cs">
+      <DependentUpon>202001101410461_confirmPass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001120946455_usuwanie hasla z Bazy.cs" />
+    <Compile Include="Migrations\202001120946455_usuwanie hasla z Bazy.designer.cs">
+      <DependentUpon>202001120946455_usuwanie hasla z Bazy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001121120462_konwertowanie modelu.cs" />
+    <Compile Include="Migrations\202001121120462_konwertowanie modelu.designer.cs">
+      <DependentUpon>202001121120462_konwertowanie modelu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Models\UserDb.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -223,6 +236,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001061702365_dodanie haszu i daty.resx">
       <DependentUpon>202001061702365_dodanie haszu i daty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001101410461_confirmPass.resx">
+      <DependentUpon>202001101410461_confirmPass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001120946455_usuwanie hasla z Bazy.resx">
+      <DependentUpon>202001120946455_usuwanie hasla z Bazy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001121120462_konwertowanie modelu.resx">
+      <DependentUpon>202001121120462_konwertowanie modelu.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

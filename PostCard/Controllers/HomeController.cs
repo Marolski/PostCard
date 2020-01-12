@@ -40,23 +40,23 @@ namespace PostCard.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Register(User user)
+        public ActionResult Register(User user, UserDb userDb)
         {
-            user.Date = DateTime.Now;
-            string hashName = Hash(user.Password);
-            user.Hash = hashName;
-            if (user.Password != user.ConfirmPassword)
+
+            userDb.Date = DateTime.Now;
+            userDb.Verified = false;
+            string toHash = user.Email + "PCard";
+            string hashEmail = Hash(toHash);
+            if (ModelState.IsValid)
             {
-                throw new Exception("Hasła są nieprawidłowe");
-            }
-            else if (ModelState.IsValid)
-            {
-                user.Verified = false;
-                db.User.Add(user);
+                userDb.Nick = user.Nick;
+                userDb.Email = user.Email;
+                userDb.Password = Hash(user.Password);
+                db.UserDb.Add(userDb);
                 db.SaveChanges();
-                Uri url = new Uri("https://localhost:44385/Home/Login?parameter=" + hashName+"&parameter2="+user.Nick);
+                Uri url = new Uri("https://localhost:44385/Home/Login?parameter=" + hashEmail+"&parameter2="+userDb.Nick);
                 string body = "kliknij w <a href="+url+">klik</a> aby potwierdzic konto";
-                MailMessage mail = new MailMessage("mbrzoska303@gmail.com", user.Email,"potwierdzenie",body);
+                MailMessage mail = new MailMessage("mbrzoska303@gmail.com", userDb.Email,"potwierdzenie",body);
                 mail.IsBodyHtml = true;
                 Server().Send(mail);
             }
@@ -71,22 +71,20 @@ namespace PostCard.Controllers
         {
             NameValueCollection QueryString = new NameValueCollection();
             string hash = Request.QueryString["parameter"];
-            Console.WriteLine(hash);
             TempData["parameter"] = hash;
             string nick = Request.QueryString["parameter2"];
-            Console.WriteLine(nick);
             TempData["parameter2"] = nick;
             using (db)
             {
-                var query = db.User
-                               .Where(x => x.Nick == nick)
-                               .FirstOrDefault<User>();
-                Console.WriteLine(query);
-                if (hash==query.Hash)
+                var query = db.UserDb
+                                   .Where(x => x.Nick == nick)
+                                   .FirstOrDefault<UserDb>();
+                string confirmHash = Hash(query.Email + "PCard");
+                if (hash == confirmHash)
                 {
                     query.Verified = true;
                     try
-                    { 
+                    {
                         db.SaveChanges();
                         TempData["confirm"] = "Konto zostało aktywowane!";
                     }
@@ -101,8 +99,9 @@ namespace PostCard.Controllers
                     TempData["confirm"] = "Konto nie zostało aktywowane, skontaktuj się z administratorem.";
                 }
             }
-            return View();     
+            return View();
         }
+
         public SmtpClient Server()
         {
             SmtpClient server = new SmtpClient()

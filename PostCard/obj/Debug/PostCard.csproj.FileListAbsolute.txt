@@ -83,3 +83,6 @@ C:\Users\marol\source\repos\PostCard\PostCard\obj\Debug\PostCard.csproj.Generate
 C:\Users\marol\source\repos\PostCard\PostCard\obj\Debug\PostCard.Migrations.confirmPassword.resources
 C:\Users\marol\source\repos\PostCard\PostCard\obj\Debug\PostCard.Migrations.AddHashAndDate.resources
 C:\Users\marol\source\repos\PostCard\PostCard\obj\Debug\PostCard.Migrations.dodaniehaszuidaty.resources
+C:\Users\marol\source\repos\PostCard\PostCard\obj\Debug\PostCard.Migrations.confirmPass.resources
+C:\Users\marol\source\repos\PostCard\PostCard\obj\Debug\PostCard.Migrations.usuwaniehaslazBazy.resources
+C:\Users\marol\source\repos\PostCard\PostCard\obj\Debug\PostCard.Migrations.konwertowaniemodelu.resources
