@@ -127,12 +127,16 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Activate\ActivateAccountController.cs" />
+    <Compile Include="Areas\Register\Controller\RegisterController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Database\UserContext.cs" />
     <Compile Include="Database\UserInitializer.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\HashHelper.cs" />
+    <Compile Include="Helpers\MailServerHelper.cs" />
     <Compile Include="Migrations\201912101614590_firstMigration.cs" />
     <Compile Include="Migrations\201912101614590_firstMigration.designer.cs">
       <DependentUpon>201912101614590_firstMigration.cs</DependentUpon>
@@ -161,9 +165,17 @@
     <Compile Include="Migrations\202001121120462_konwertowanie modelu.designer.cs">
       <DependentUpon>202001121120462_konwertowanie modelu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001141936286_Zmiana wymagań modelu.cs" />
+    <Compile Include="Migrations\202001141936286_Zmiana wymagań modelu.designer.cs">
+      <DependentUpon>202001141936286_Zmiana wymagań modelu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001251410280_dodanie UserViewModel.cs" />
+    <Compile Include="Migrations\202001251410280_dodanie UserViewModel.designer.cs">
+      <DependentUpon>202001251410280_dodanie UserViewModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Areas\Register\Model\UserViewModel.cs" />
     <Compile Include="Models\User.cs" />
-    <Compile Include="Models\UserDb.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -171,6 +183,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Register\Register.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -188,6 +201,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\Register\Register.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -203,12 +217,13 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Register.cshtml" />
-    <Content Include="Views\Home\Succesful.cshtml" />
+    <Content Include="Views\Register\Succesful.cshtml" />
     <Content Include="Views\Home\ErrorPage.cshtml" />
-    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\ActivateAccount\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Register\Views\" />
     <Folder Include="Cookies\" />
   </ItemGroup>
   <ItemGroup>
@@ -245,6 +260,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001121120462_konwertowanie modelu.resx">
       <DependentUpon>202001121120462_konwertowanie modelu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001141936286_Zmiana wymagań modelu.resx">
+      <DependentUpon>202001141936286_Zmiana wymagań modelu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001251410280_dodanie UserViewModel.resx">
+      <DependentUpon>202001251410280_dodanie UserViewModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

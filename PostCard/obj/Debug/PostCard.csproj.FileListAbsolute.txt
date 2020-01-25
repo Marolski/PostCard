@@ -86,3 +86,5 @@ C:\Users\marol\source\repos\PostCard\PostCard\obj\Debug\PostCard.Migrations.doda
 C:\Users\marol\source\repos\PostCard\PostCard\obj\Debug\PostCard.Migrations.confirmPass.resources
 C:\Users\marol\source\repos\PostCard\PostCard\obj\Debug\PostCard.Migrations.usuwaniehaslazBazy.resources
 C:\Users\marol\source\repos\PostCard\PostCard\obj\Debug\PostCard.Migrations.konwertowaniemodelu.resources
+C:\Users\marol\source\repos\PostCard\PostCard\obj\Debug\PostCard.Migrations.Zmianawymagańmodelu.resources
+C:\Users\marol\source\repos\PostCard\PostCard\obj\Debug\PostCard.Migrations.dodanieUserViewModel.resources
