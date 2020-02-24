@@ -1,4 +1,4 @@
-﻿@model PostCard.Models.User
+﻿@model PostCard.Models.UserViewModel
 
 @{
     Layout = null;
@@ -14,19 +14,21 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/Register/Register.js"></script>
+    <link rel="stylesheet" href="~/Content/Register/Register.css">
     <title>RegisterForm</title>
 </head>
 <body>
     <div class="panel panel-success">
         <div class="panel-heading text-center"><h4>Rejestracja</h4></div>
         <div class="panel-body">
-            @using (Html.BeginForm())
+            @using (Html.BeginForm("Register", "Register"))
             {
                 @Html.ValidationSummary(true)
                 <div class="form-group">
                     <label>Email: </label>
-                    @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(x => x.Email,"",new { @class="text-danger"})
+                    @Html.TextBoxFor(x =>x.Email, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.Email, "", new { @class = "text-danger" })
                 </div>
                 <div class="form-group">
                     <label>Nick:  </label>
@@ -34,24 +36,46 @@
                     @Html.ValidationMessageFor(x => x.Nick, "", new { @class = "text-danger" })
                 </div>
                 <div class="form-group">
-                    <label>Hasło:</label>
-                    @Html.TextBoxFor(x => x.Password, new { @class = "form-control" })
+                    <label>Password:</label>
+                    @Html.PasswordFor(x => x.Password, new { @class = "form-control" })
                     @Html.ValidationMessageFor(x => x.Password, "", new { @class = "text-danger" })
                 </div>
                 <div class="form-group">
                     <label>Confirm password: </label>
-                    @Html.TextBoxFor(x => x.ConfirmPassword, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(x => x.ConfirmPassword,"",new { @class= "text-danger"})
+                    @Html.PasswordFor(x => x.ConfirmPassword, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.ConfirmPassword, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.CheckBoxFor(x => x.TermsAndConditions, new { @class = "TermsAndConditions" })
+                    @Html.LabelFor(x => x.TermsAndConditions)
+                    @Html.ValidationMessageFor(x => x.TermsAndConditions, "", new { @class = "text-danger" })
                 </div>
 
-                <label>Akceptuje regulamin</label>
-                <input type="checkbox" />
-
                 <div class="text-center">
-                    <input class="btn btn-success" type="submit" value="Zarejestruj" />
+                    <input class="btn btn-success submit" type="submit" value="Zarejestruj" onclick="checkboxValidator()" />
                 </div>
             }
         </div>
     </div>
+    <script>
+        // extend jquery range validator to work for required checkboxes
+        var defaultRangeValidator = $.validator.methods.range;
+        $.validator.methods.range = function (value, element, param) {
+            if (element.type === 'checkbox') {
+                // if it's a checkbox return true if it is checked
+                return element.checked;
+            } else {
+                // otherwise run the default validation function
+                return defaultRangeValidator.call(this, value, element, param);
+            }
+        }
+    </script>
 </body>
+
+<style type="text/css">
+    .field-validation-error {
+        color: #ff0000;
+        display: block;
+    }
+</style>
 </html>

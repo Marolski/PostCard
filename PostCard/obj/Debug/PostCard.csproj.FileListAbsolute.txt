@@ -81,6 +81,13 @@ C:\Users\marol\source\repos\PostCard\PostCard\obj\Debug\PostCard.pdb
 C:\Users\marol\source\repos\PostCard\PostCard\obj\Debug\PostCard.Migrations.firstMigration.resources
 C:\Users\marol\source\repos\PostCard\PostCard\obj\Debug\PostCard.csproj.GenerateResource.cache
 C:\Users\marol\source\repos\PostCard\PostCard\obj\Debug\PostCard.Migrations.confirmPassword.resources
+C:\Users\marol\source\repos\PostCard\PostCard\obj\Debug\PostCard.Migrations.AddHashAndDate.resources
+C:\Users\marol\source\repos\PostCard\PostCard\obj\Debug\PostCard.Migrations.dodaniehaszuidaty.resources
+C:\Users\marol\source\repos\PostCard\PostCard\obj\Debug\PostCard.Migrations.confirmPass.resources
+C:\Users\marol\source\repos\PostCard\PostCard\obj\Debug\PostCard.Migrations.usuwaniehaslazBazy.resources
+C:\Users\marol\source\repos\PostCard\PostCard\obj\Debug\PostCard.Migrations.konwertowaniemodelu.resources
+C:\Users\marol\source\repos\PostCard\PostCard\obj\Debug\PostCard.Migrations.Zmianawymagańmodelu.resources
+C:\Users\marol\source\repos\PostCard\PostCard\obj\Debug\PostCard.Migrations.dodanieUserViewModel.resources
 C:\Users\mbrzo\source\repos\PostCard\PostCard\bin\PostCard.dll.config
 C:\Users\mbrzo\source\repos\PostCard\PostCard\bin\PostCard.dll
 C:\Users\mbrzo\source\repos\PostCard\PostCard\bin\PostCard.pdb
@@ -159,6 +166,13 @@ C:\Users\mbrzo\source\repos\PostCard\PostCard\bin\Microsoft.CodeDom.Providers.Do
 C:\Users\mbrzo\source\repos\PostCard\PostCard\obj\Debug\PostCard.csprojAssemblyReference.cache
 C:\Users\mbrzo\source\repos\PostCard\PostCard\obj\Debug\PostCard.Migrations.firstMigration.resources
 C:\Users\mbrzo\source\repos\PostCard\PostCard\obj\Debug\PostCard.Migrations.confirmPassword.resources
+C:\Users\mbrzo\source\repos\PostCard\PostCard\obj\Debug\PostCard.Migrations.AddHashAndDate.resources
+C:\Users\mbrzo\source\repos\PostCard\PostCard\obj\Debug\PostCard.Migrations.dodaniehaszuidaty.resources
+C:\Users\mbrzo\source\repos\PostCard\PostCard\obj\Debug\PostCard.Migrations.confirmPass.resources
+C:\Users\mbrzo\source\repos\PostCard\PostCard\obj\Debug\PostCard.Migrations.usuwaniehaslazBazy.resources
+C:\Users\mbrzo\source\repos\PostCard\PostCard\obj\Debug\PostCard.Migrations.konwertowaniemodelu.resources
+C:\Users\mbrzo\source\repos\PostCard\PostCard\obj\Debug\PostCard.Migrations.Zmianawymagańmodelu.resources
+C:\Users\mbrzo\source\repos\PostCard\PostCard\obj\Debug\PostCard.Migrations.dodanieUserViewModel.resources
 C:\Users\mbrzo\source\repos\PostCard\PostCard\obj\Debug\PostCard.csproj.GenerateResource.cache
 C:\Users\mbrzo\source\repos\PostCard\PostCard\obj\Debug\PostCard.csproj.CopyComplete
 C:\Users\mbrzo\source\repos\PostCard\PostCard\obj\Debug\PostCard.dll

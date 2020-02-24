@@ -1,31 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using System.ComponentModel.DataAnnotations;
 
 namespace PostCard.Models
 {
     public class User
     {
         public int ID { get; set; }
-        [Display(Name = "Username")]
-        [Required(ErrorMessage = "Username is required")]
-        [RegularExpression("^[a-zA-Z0-9].{5,15}$",ErrorMessage = "Username can be from 5 to 15 characters")]
+        [Required]
         public string Nick { get; set; }
-        [Display(Name = "Email address")]
-        [Required(ErrorMessage = "The email address is required")]
-        [RegularExpression("^[a-zA-Z0-9_\\.-]+@([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$", ErrorMessage = "E-mail is not valid")]
+        [Required]
         public string Email { get; set; }
-        [Display(Name = "Password")]
-        [Required(ErrorMessage = "Password is required")]
-        [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$", ErrorMessage = "Password must contain uppercase letters and number")]
-        [DataType(DataType.Password)]
+        [Required]
         public string Password { get; set; }
-        [NotMapped] // Nie wysyła do bazy
-        [Compare("Password",ErrorMessage ="Passwords are not equal")]
-        public string ConfirmPassword { get; set; }
+        [Required]
         public bool Verified { get; set; }
+        [Required]
+        public DateTime Date { get; set; }
+
     }
 }

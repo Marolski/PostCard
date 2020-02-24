@@ -6,6 +6,11 @@ using System.Web;
 using System.Web.Mvc;
 using PostCard.Database;
 using PostCard.Models;
+using System.Security.Cryptography;
+using System.Text;
+using System.Collections.Specialized;
+using System.Data.SqlClient;
+using PostCard.Helpers;
 
 namespace PostCard.Controllers
 {
@@ -35,21 +40,6 @@ namespace PostCard.Controllers
         {
             return View();
         }
-        [HttpPost]
-        public ActionResult Register(User user)
-        {
-            if (ModelState.IsValid)
-            {
-                user.Verified = false;
-                db.User.Add(user);
-                db.SaveChanges();
-                return View("Succesful", user);
-            }
-            else
-            {
-                string error = "Dane nie zostały poprawnie zwalidowane";
-                return View("ErrorPage", error);
-            }
-        }
+      
     }
 }
