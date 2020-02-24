@@ -1,0 +1,49 @@
+﻿@model PostCard.Areas.Login.Model.LoginViewModel
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/Register/Register.js"></script>
+    <link rel="stylesheet" href="~/Content/Register/Register.css">
+    <title>RegisterForm</title>
+</head>
+<body>
+    <div class="panel panel-success">
+        <div class="panel-heading text-center"><h4>Logowanie</h4></div>
+        <div class="panel-body">
+            @using (Html.BeginForm("Login", "Login"))
+            {
+                @Html.ValidationSummary(true)
+                <div class="form-group">
+                    <label>Nick:  </label>
+                    @Html.TextBoxFor(x => x.Nick, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.Nick, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    <label>Password:</label>
+                    @Html.PasswordFor(x => x.Password, new { @class = "form-control"})
+                    @Html.ValidationMessageFor(x=>x.Password, "", new { @class = "text-danger"})
+                </div>
+
+                <div class="text-center">
+                    <input class="btn btn-success submit" type="submit" value="Zaloguj" onclick="checkboxValidator()" />
+                </div>
+            }
+        </div>
+    </div>
+</body>
+
+<style type="text/css">
+    .field-validation-error {
+        color: #ff0000;
+        display: block;
+    }
+</style>
+</html>
