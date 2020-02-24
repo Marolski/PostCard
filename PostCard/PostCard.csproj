@@ -250,7 +250,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Login\Data\" />
     <Folder Include="Areas\Login\Views\Shared\" />
     <Folder Include="Areas\Register\Views\" />
     <Folder Include="Cookies\" />
