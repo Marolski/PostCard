@@ -16,7 +16,7 @@ namespace PostCard.Controllers
 {
     public class HomeController : Controller
     {
-        private UserContext db = new UserContext();
+        private Database.UserContext db = new Database.UserContext();
         public ActionResult Index()
         {
             return View();
@@ -37,6 +37,10 @@ namespace PostCard.Controllers
         }
         [HttpGet]
         public ActionResult Register()
+        {
+            return View();
+        }
+        public ActionResult Login()
         {
             return View();
         }

@@ -13,8 +13,8 @@ namespace PostCard.Areas.Activate
 {
     public class ActivateAccountController: HomeController
     {
-        private UserContext db = new UserContext();
-        public ActionResult Login()
+        private Database.UserContext db = new Database.UserContext();
+        public ActionResult AccountActivated()
         {
             NameValueCollection QueryString = new NameValueCollection();
             string hash = Request.QueryString["parameter"];
@@ -25,7 +25,7 @@ namespace PostCard.Areas.Activate
             {
                 var query = db.UserDb
                                    .Where(x => x.Nick == nick)
-                                   .FirstOrDefault<User>();
+                                   .FirstOrDefault();
                 string confirmHash = HashHelper.Hash(query.Email + "PCard");
                 if (hash == confirmHash)
                 {
