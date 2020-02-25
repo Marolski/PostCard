@@ -19,6 +19,8 @@ namespace PostCard.Models
         public bool Verified { get; set; }
         [Required]
         public DateTime Date { get; set; }
+        [Required]
+        public string Guide { get; set; }
 
     }
 }

@@ -13,7 +13,8 @@ namespace PostCard.Areas.Register.Controller
 {
     public class RegisterController: HomeController
     {
-        private UserContext db = new UserContext();
+        private Database.UserContext db = new Database.UserContext();
+        private CreateGuideHelper guideHelper = new CreateGuideHelper();
         [HttpPost]
         public ViewResult Register(UserViewModel user)
         {
@@ -25,6 +26,7 @@ namespace PostCard.Areas.Register.Controller
             User userDb = new User();
             userDb.Date = DateTime.Now;
             userDb.Verified = false;
+            userDb.Guide = guideHelper.CreateGuide();
             string checkData = CheckData(user.Nick, user.Email);
             if (checkData == "Nazwa użytkownika jest zajęta")
             {
@@ -61,7 +63,7 @@ namespace PostCard.Areas.Register.Controller
 
         public string CheckData(string nick, string email)
         {
-            using (var dbUser = new UserContext())
+            using (var dbUser = new Database.UserContext())
             {
                 if (dbUser.UserDb.Any(o => o.Email == email))
                 {
