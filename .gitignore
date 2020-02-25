@@ -7,12 +7,6 @@ ehthumbs_vista.db
 # Dump file
 *.stackdump
 
-# User-specific files
-*.suo
-*.user
-*.userosscache
-*.sln.docstates
-
 # Folder config file
 [Dd]esktop.ini
 
