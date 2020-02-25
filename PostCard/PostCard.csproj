@@ -258,6 +258,7 @@
     <Folder Include="Areas\Login\Views\Shared\" />
     <Folder Include="Areas\Register\Views\" />
     <Folder Include="Cookies\" />
+    <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
