@@ -209,9 +209,8 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Login\Views\HomePageUser.cshtml" />
     <Content Include="Areas\Login\Views\web.config" />
-    <Content Include="Areas\FullMap\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\FullMap\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\FullMap\Views\FullMap.cshtml" />
+    <Content Include="Areas\FullMap\Views\web.config" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -255,6 +254,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\FullMap\Controller\" />
     <Folder Include="Areas\FullMap\Models\" />
+    <Folder Include="Areas\FullMap\Views\Shared\" />
     <Folder Include="Areas\Login\Views\Shared\" />
     <Folder Include="Areas\Register\Views\" />
     <Folder Include="Cookies\" />
