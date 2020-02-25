@@ -37,7 +37,7 @@ namespace PostCard.Areas.Login.Controller
             cookies.Expires = DateTime.Now.AddHours(1);
             Response.Cookies.Add(cookies);
 
-            return View("~/Areas/Login/Views/HomePageUser.cshtml");
+            return View("~/Areas/Login/Views/HomePageUser.cshtml", loginViewModel);
         }
         public string CheckData(string nick, string password)
         {
@@ -56,6 +56,15 @@ namespace PostCard.Areas.Login.Controller
 
             }
             return "";
+        }
+        public void CheckGuide(HttpCookie cookie)
+        {
+            string userGuide = userRepo.GetGuidByUsername(cookie["username"]);
+            if (userGuide != cookie["guide"])
+            {
+                throw new Exception("No authorization");
+
+            }
         }
     }
 }
