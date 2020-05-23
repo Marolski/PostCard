@@ -44,6 +44,15 @@ namespace PostCard.Controllers
         {
             return View();
         }
-      
+        public ActionResult GetFullMap()
+        {
+            return View("~/Areas/FullMap/Views/FullMap.cshtml");
+        }
+        public ActionResult ResetPassword()
+        {
+            ViewBag.ShowAlert = false;
+            return View();
+        }
+
     }
 }

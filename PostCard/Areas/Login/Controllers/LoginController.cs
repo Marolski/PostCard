@@ -9,6 +9,7 @@ using PostCard.Controllers;
 using PostCard.Repository;
 using PostCard.Database;
 using PostCard.Helpers;
+using System.Net.Mail;
 
 namespace PostCard.Areas.Login.Controller
 {
@@ -38,6 +39,27 @@ namespace PostCard.Areas.Login.Controller
             Response.Cookies.Add(cookies);
 
             return View("~/Areas/Login/Views/HomePageUser.cshtml", loginViewModel);
+        }
+        public ViewResult Reset(string email)
+        {
+            ViewBag.ShowAlert = false;
+            string newPassword = StringGenerator.RandomString(10);
+            string hashedPassword = HashHelper.Hash(newPassword);
+            using (var dbUser = new UserContext())
+            {
+                User user = userRepo.GetUserByEmail(email);
+                if (user!=null)
+                {
+                    user.Password = hashedPassword;
+                    db.SaveChanges();
+                    string body = "nowe hasło do serwisu: "+newPassword;
+                    MailMessage mail = new MailMessage("mbrzoska303@gmail.com", user.Email, "potwierdzenie", body);
+                    mail.IsBodyHtml = true;
+                    MailServerHelper.Server().Send(mail);
+                    ViewBag.ShowAlert = true;
+                }
+            }
+            return View("~/Views/Home/ResetPassword.cshtml");
         }
         public string CheckData(string nick, string password)
         {

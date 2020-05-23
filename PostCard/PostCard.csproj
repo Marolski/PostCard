@@ -137,18 +137,21 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Activate\Controller\ActivateAccountController.cs" />
+    <Compile Include="Areas\FullMap\Controller\FullMap.cs" />
     <Compile Include="Areas\Login\Controllers\LoginController.cs" />
     <Compile Include="Areas\Login\Model\LoginViewModel.cs" />
     <Compile Include="Areas\Register\Controller\RegisterController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Database\UserContext.cs" />
     <Compile Include="Database\UserInitializer.cs" />
+    <Compile Include="Enum\CountryCodeEnum.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\CreateGuideHelper.cs" />
     <Compile Include="Helpers\HashHelper.cs" />
     <Compile Include="Helpers\MailServerHelper.cs" />
+    <Compile Include="Helpers\StringGenerator.cs" />
     <Compile Include="Migrations\201912101614590_firstMigration.cs" />
     <Compile Include="Migrations\201912101614590_firstMigration.designer.cs">
       <DependentUpon>201912101614590_firstMigration.cs</DependentUpon>
@@ -188,6 +191,14 @@
     <Compile Include="Migrations\202002240959549_dodanie guida.cs" />
     <Compile Include="Migrations\202002240959549_dodanie guida.designer.cs">
       <DependentUpon>202002240959549_dodanie guida.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005231215563_Add country code.cs" />
+    <Compile Include="Migrations\202005231215563_Add country code.designer.cs">
+      <DependentUpon>202005231215563_Add country code.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005231550443_enum countrocode.cs" />
+    <Compile Include="Migrations\202005231550443_enum countrocode.designer.cs">
+      <DependentUpon>202005231550443_enum countrocode.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Areas\Register\Model\UserViewModel.cs" />
@@ -249,10 +260,10 @@
     <Content Include="Views\Home\ErrorPage.cshtml" />
     <Content Include="Views\ActivateAccount\AccountActivated.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Home\ResetPassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\FullMap\Controller\" />
     <Folder Include="Areas\FullMap\Models\" />
     <Folder Include="Areas\FullMap\Views\Shared\" />
     <Folder Include="Areas\Login\Views\Shared\" />
@@ -303,6 +314,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002240959549_dodanie guida.resx">
       <DependentUpon>202002240959549_dodanie guida.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005231215563_Add country code.resx">
+      <DependentUpon>202005231215563_Add country code.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005231550443_enum countrocode.resx">
+      <DependentUpon>202005231550443_enum countrocode.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

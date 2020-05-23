@@ -18,5 +18,9 @@ namespace PostCard.Repository
         {
             return _context.UserDb.FirstOrDefault(x => x.Nick == nick);
         }
+        public User GetUserByEmail(string Email)
+        {
+            return _context.UserDb.FirstOrDefault(x => x.Email == Email);
+        }
     }
 }
