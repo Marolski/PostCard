@@ -222,6 +222,7 @@
     <Content Include="Areas\Login\Views\web.config" />
     <Content Include="Areas\FullMap\Views\FullMap.cshtml" />
     <Content Include="Areas\FullMap\Views\web.config" />
+    <None Include="Properties\PublishProfiles\Marolski.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
